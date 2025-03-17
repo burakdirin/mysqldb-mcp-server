@@ -2,6 +2,20 @@
 
 A MySQL database MCP server project.
 
+## Installation
+
+You can install the package using `uv`:
+
+```bash
+uv pip install mysqldb-mcp-server
+```
+
+Or using `pip`:
+
+```bash
+pip install mysqldb-mcp-server
+```
+
 ## Components
 
 ### Tools
