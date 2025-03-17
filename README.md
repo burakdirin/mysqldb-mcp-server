@@ -1,4 +1,5 @@
 # mysqldb-mcp-server MCP server
+[![smithery badge](https://smithery.ai/badge/@burakdirin/mysqldb-mcp-server)](https://smithery.ai/server/@burakdirin/mysqldb-mcp-server)
 
 A MySQL database MCP server project.
 
@@ -100,6 +101,14 @@ Windows: `%APPDATA%/Claude/claude_desktop_config.json`
 }
 ```
 </details>
+
+### Installing via Smithery
+
+To install MySQL Database Integration Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@burakdirin/mysqldb-mcp-server):
+
+```bash
+npx -y @smithery/cli install @burakdirin/mysqldb-mcp-server --client claude
+```
 
 ## Development
 

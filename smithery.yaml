@@ -1,0 +1,48 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    properties:
+      MYSQL_HOST:
+        type: string
+        default: localhost
+        description: MySQL server address
+      MYSQL_USER:
+        type: string
+        default: root
+        description: MySQL username
+      MYSQL_PASSWORD:
+        type: string
+        default: ""
+        description: MySQL password
+      MYSQL_DATABASE:
+        type: string
+        default: ""
+        description: Initial database (optional)
+      MYSQL_READONLY:
+        type: boolean
+        default: false
+        description: Read-only mode, set true to enable
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'mysqldb-mcp-server',
+      args: [],
+      env: {
+        MYSQL_HOST: config.MYSQL_HOST,
+        MYSQL_USER: config.MYSQL_USER,
+        MYSQL_PASSWORD: config.MYSQL_PASSWORD,
+        MYSQL_DATABASE: config.MYSQL_DATABASE,
+        MYSQL_READONLY: config.MYSQL_READONLY.toString()
+      }
+    })
+  exampleConfig:
+    MYSQL_HOST: localhost
+    MYSQL_USER: root
+    MYSQL_PASSWORD: password
+    MYSQL_DATABASE: ""
+    MYSQL_READONLY: false
