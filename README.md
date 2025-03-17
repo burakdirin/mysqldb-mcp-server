@@ -38,7 +38,9 @@ Windows: `%APPDATA%/Claude/claude_desktop_config.json`
 
 <details>
   <summary>Development/Unpublished Server Configuration</summary>
-  ```
+
+```json
+{
   "mcpServers": {
     "mysqldb-mcp-server": {
       "command": "uv",
@@ -47,24 +49,42 @@ Windows: `%APPDATA%/Claude/claude_desktop_config.json`
         "/Users/burakdirin/Projects/mysqldb-mcp-server",
         "run",
         "mysqldb-mcp-server"
-      ]
+      ],
+      "env": {
+        "MYSQL_HOST": "localhost",
+        "MYSQL_USER": "root",
+        "MYSQL_PASSWORD": "password",
+        "MYSQL_DATABASE": "[optional]",
+        "MYSQL_READONLY": "true"
+      }
     }
   }
-  ```
+}
+```
 </details>
 
 <details>
   <summary>Published Server Configuration</summary>
-  ```
+
+```json
+{
   "mcpServers": {
     "mysqldb-mcp-server": {
       "command": "uvx",
       "args": [
         "mysqldb-mcp-server"
-      ]
+      ],
+      "env": {
+        "MYSQL_HOST": "localhost",
+        "MYSQL_USER": "root",
+        "MYSQL_PASSWORD": "password",
+        "MYSQL_DATABASE": "[optional]",
+        "MYSQL_READONLY": "true"
+      }
     }
   }
-  ```
+}
+```
 </details>
 
 ## Development
