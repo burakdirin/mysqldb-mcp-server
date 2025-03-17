@@ -1,0 +1,25 @@
+[project]
+name = "mysqldb-mcp-server"
+version = "0.1.0"
+description = "A MCP server implementation for MySQL database integration"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [ 
+    "mcp>=1.4.1",
+    "mysql-connector-python>=9.2.0",
+    "python-dotenv>=1.0.1",
+]
+[[project.authors]]
+name = "Burak Dirin"
+email = "burakdirin@gmail.com"
+
+[build-system]
+requires = [ "hatchling",]
+build-backend = "hatchling.build"
+
+[project.scripts]
+mysqldb-mcp-server = "mysqldb_mcp_server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mysqldb_mcp_server"]
