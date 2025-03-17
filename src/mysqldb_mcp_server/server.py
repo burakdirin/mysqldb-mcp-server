@@ -65,9 +65,21 @@ class MySQLContext:
     connection: Optional[mysql.connector.MySQLConnection] = None
 
     def ensure_connected(self) -> None:
-        """Ensure database connection is available"""
+        """Ensure database connection is available, connecting lazily if needed"""
         if not self.connection or not self.connection.is_connected():
-            raise ConnectionError("Database connection is not available")
+            config = {
+                "host": self.host,
+                "user": self.user,
+                "password": self.password,
+            }
+            if self.database:
+                config["database"] = self.database
+
+            try:
+                self.connection = mysql.connector.connect(**config)
+            except MySQLError as e:
+                raise ConnectionError(
+                    f"Failed to connect to database: {str(e)}")
 
 
 class QueryExecutor:
@@ -165,26 +177,17 @@ async def mysql_lifespan(server: FastMCP) -> AsyncIterator[MySQLContext]:
     # Get connection settings from environment variables
     host, user, password, database, readonly = get_env_vars()
 
-    # Initialize context
+    # Initialize context without connecting
     ctx = MySQLContext(
         host=host,
         user=user,
         password=password,
         database=database,
-        readonly=readonly
+        readonly=readonly,
+        connection=None  # Don't connect immediately
     )
 
     try:
-        # Create connection config
-        config = {
-            "host": ctx.host,
-            "user": ctx.user,
-            "password": ctx.password,
-        }
-        if ctx.database:
-            config["database"] = ctx.database
-
-        ctx.connection = mysql.connector.connect(**config)
         yield ctx
     finally:
         if ctx.connection and ctx.connection.is_connected():
