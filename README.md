@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/burakdirin-mysqldb-mcp-server-badge.png)](https://mseep.ai/app/burakdirin-mysqldb-mcp-server)
+
 # mysqldb-mcp-server MCP server
 [![smithery badge](https://smithery.ai/badge/@burakdirin/mysqldb-mcp-server)](https://smithery.ai/server/@burakdirin/mysqldb-mcp-server)
 
