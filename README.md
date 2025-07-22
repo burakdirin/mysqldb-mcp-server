@@ -3,6 +3,10 @@
 
 A MySQL database MCP server project.
 
+<a href="https://glama.ai/mcp/servers/@burakdirin/mysqldb-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@burakdirin/mysqldb-mcp-server/badge" alt="mysqldb-mcp-server MCP server" />
+</a>
+
 ## Installation
 
 You can install the package using `uv`:
