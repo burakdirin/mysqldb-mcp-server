@@ -1,5 +1,5 @@
 # mysqldb-mcp-server MCP server
-[![smithery badge](https://smithery.ai/badge/@burakdirin/mysqldb-mcp-server)](https://smithery.ai/server/@burakdirin/mysqldb-mcp-server)
+[![LightNow capabilities](https://lightnow.ai/badge/io.github.burakdirin/mysqldb-mcp-server)](https://lightnow.ai/servers/io.github.burakdirin/mysqldb-mcp-server)
 
 A MySQL database MCP server project.
 
